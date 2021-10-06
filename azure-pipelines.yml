@@ -1,9 +1,9 @@
 resources:
 - repo: self
   fetchDepth: 1
-pool:
-  vmImage: Test
-trigger:
+#pool:
+#  vmImage: Test
+#trigger:
 - master
 variables:
   TargetFramework: 'netcoreapp3.1'
