@@ -5,7 +5,7 @@ queue:
   name: Test
 #pool:
 #  vmImage: Test
-#trigger:
+trigger:
 - master
 variables:
   TargetFramework: 'netcoreapp3.1'
