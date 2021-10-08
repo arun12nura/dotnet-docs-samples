@@ -12,6 +12,18 @@ variables:
   BuildConfiguration: 'Release'
   DockerImageName: 'migration-kubernetes/clouddemo'
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.1'
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+- task: SSH@0
+  inputs:
+    runOptions: 'commands'
+    commands: 'sudo apt-get update && sudo apt-get install google-cloud-sdk'
+    readyTimeout: '20000'
 - task: DotNetCoreCLI@2
   displayName: Publish
   inputs:
