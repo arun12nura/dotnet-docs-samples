@@ -2,7 +2,7 @@ resources:
 - repo: self
   fetchDepth: 1
 queue:
-  name: Test
+  name: azu-devops-vmss
 #pool:
 #  vmImage: Test
 trigger:
