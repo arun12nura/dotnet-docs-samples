@@ -67,6 +67,6 @@ steps:
 - task: Docker@2
   displayName: 'Build and push image'
   inputs:
-    repository: 'us-docker.pkg.dev/migration-kubernetes/migration-kube'
+    repository: 'migration-kubernetes/migration-kube'
     command: 'buildAndPush'
     Dockerfile: 'applications/clouddemo/netcore/Dockerfile'
