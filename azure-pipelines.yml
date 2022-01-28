@@ -53,13 +53,18 @@ steps:
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
 - task: Docker@2
-  displayName: 'Login to Container Registry'
   inputs:
-    command: login
-    containerRegistry: 'gcr-tutorial'
+    containerRegistry: 'gcr-artifact-reg'
+    command: 'login'
+#- task: Docker@2
+#  displayName: 'Build and push image'
+#  inputs:
+#    Dockerfile: 'applications/clouddemo/netcore/Dockerfile'
+#    command: buildAndPush
+#    repository: '$(DockerImageName)'
+
 - task: Docker@2
-  displayName: 'Build and push image'
   inputs:
+    repository: 'us-docker.pkg.dev/migration-kubernetes/migration-kube'
+    command: 'buildAndPush'
     Dockerfile: 'applications/clouddemo/netcore/Dockerfile'
-    command: buildAndPush
-    repository: '$(DockerImageName)'
