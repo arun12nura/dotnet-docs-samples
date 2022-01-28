@@ -10,7 +10,7 @@ trigger:
 variables:
   TargetFramework: 'netcoreapp3.1'
   BuildConfiguration: 'Release'
-  DockerImageName: 'migration-kubernetes/clouddemo'
+  DockerImageName: 'clouddemo'
 steps:
 - task: UseDotNet@2
   inputs:
@@ -67,6 +67,6 @@ steps:
 - task: Docker@2
   displayName: 'Build and push image'
   inputs:
-    repository: 'migration-kubernetes/migration-kube'
+    repository: 'migration-kubernetes/migration-kube/$(DockerImageName)'
     command: 'buildAndPush'
     Dockerfile: 'applications/clouddemo/netcore/Dockerfile'
